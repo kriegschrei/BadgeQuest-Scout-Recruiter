@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>
+      Brave Blossom Recruiter
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="blossom_recruiter.css">
+    <script src="blossom_recruiter.js">
+    </script>
+  </head>
+
+  <body onload="generateChar();">
+    <div class="noPrint center">
+      A character generator for <a href="https://dmdave.com/badge-quest/">Badge Quest</a><br>
+      <button onclick="window.location.reload();" class="button">Recruit Another</button>
+      <button onclick="window.print();" class="button">Print</button>
+    </div>
+    
+    <div class="container">
+
+      <div class="logo">
+        <img src="badge_quest_logo.png" alt="BadgeQuest Logo">
+      </div>
+
+      <!-- CHARACTER NAME -->
+      <div class="charname box">
+        <span class="label center row">
+          Blossom's Name
+        </span>
+        <span class="center row" id="girl_name"></span>
+      </div>
+
+      <div class="charage box">
+        <span class="label center row">
+          Age
+        </span>
+        <span class="center row" id="girl_age"></span>
+      </div>
+
+      <div class="pname box">
+        <span class="label center row">
+          Player's Name
+        </span>
+        <span class="row">&#xfeff;<br>&#xfeff;</span>
+      </div>
+
+        <div class="story box">
+            <span class="label center row">Story</span>
+            <div class="table">
+                <div class="table-row">
+                    <span class="label table-cell">Personality</span>
+                    <span class="table-cell" id="personality"></span>
+                </div>
+                <div class="table-row">
+                    <span class="label table-cell">Upbringing</span>
+                    <span clss="table-cell" id="upbringing"></span>
+                </div>
+                <div class="table-row">
+                    <span class="label table-cell">Flaw</span>
+                    <span class="table-cell" id="flaw"></span>
+                </div>
+            </div>
+        </div>
+      
+      <div class="image box">
+        <span class="label center row">
+            Appearance
+        </span>
+        <span class="row">&#xfeff;<br>&#xfeff;</span>
+      </div>
+
+      <div class="archetype box">
+        <span class="label">
+          Archetype
+        </span>
+        <span id="archetype"></span>
+      </div>
+
+      <div class="feature box">
+        <span class="label center">Archetype Feature</span>
+        <span id="feature"></span>
+      </div>
+
+        <div class="skill box">
+            <span class="label center row">Skill</span>
+            <span class="center row" id="skillmod"></span>
+            <span class="center ability row" id="skill"></span>
+        </div>
+      
+        <div class="stress box">
+            <span class="label center row">Stress</span>
+            <span class="center row">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </span>
+        </div>
+ 
+      <div class="toughness box">
+        <span class="label center row">Toughness</span>
+        <span class="center row" id="toughnessmod"></span>
+        <span class="center ability row" id="toughness"></span>
+      </div>
+
+      <div class="injuries box">
+        <span class="label center row">Injuries</span>
+        <span class="center row">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </span>
+      </div>
+
+      <div class="charm box">
+        <div class="label center row">Charm</div>
+        <div class="center row" id="charmmod"></div>
+        <div class="center ability row" id="charm"></div>
+      </div>
+
+      <div class="embarassment box ">
+        <div class="label center row">Embarassment</div>
+        <div class="center row">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+      </div>
+      <div class="badges box">
+        <div class="label center row">Badges</div>
+        <ul>
+        <div class="row" id="badges"></div>
+        </ul>
+      </div>
+      <div class="capacity box">
+        <div class="label center">Carrying Capacity</div>
+        <div class="center" id="capacity"></div>
+      </div>
+      <div class="money box">
+        <span class="label center row">Money</span>
+        <span class="row">&#xfeff;</span>
+      </div>
+      <div class="equipment box">
+        <div class="label center row">Equipment</div>
+        <div>&nbsp;</div>
+        <ol class="grid-list">
+        <div class="row" id="item_list"></div></ol>
+        <div class="red center" id="encumberance"></div>
+      </div>
+    </div>
+    <div class="noPrint center">
+      Badge Quest is  ©2023 Hamrick Brands, LLC. Web App by Jon Pohl.<br>
+      <i>v1.0 - "Budding Blossom"</i>
+    </div>
+  </body>
+
+</html>
