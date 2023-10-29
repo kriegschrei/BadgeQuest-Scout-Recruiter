@@ -4,21 +4,113 @@ const nick_name = ['Ace', 'Airborne', 'Ajax', 'Aladdin', 'Alpha', 'Alpine', 'Ame
 
 const last_name = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzales', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez', 'Clark', 'Ramirez', 'Lewis', 'Robinson', 'Walker', 'Young', 'Allen', 'King', 'Wright', 'Scott', 'Torres', 'Nguyen', 'Hill', 'Flores', 'Green', 'Adams', 'Nelson', 'Baker', 'Hall', 'Rivera', 'Campbell', 'Mitchell', 'Carter', 'Roberts', 'Gomez', 'Phillips', 'Evans', 'Turner', 'Diaz', 'Parker', 'Cruz', 'Edwards', 'Collins', 'Reyes', 'Stewart', 'Morris', 'Morales', 'Murphy', 'Cook', 'Rogers', 'Gutierrez', 'Ortiz', 'Morgan', 'Cooper', 'Peterson', 'Bailey', 'Reed', 'Kelly', 'Howard', 'Ramos', 'Kim', 'Cox', 'Ward', 'Richardson', 'Watson', 'Brooks', 'Chavez', 'Wood', 'James', 'Bennet', 'Gray', 'Mendoza', 'Ruiz', 'Hughes', 'Price', 'Alvarez', 'Castillo', 'Sanders', 'Patel', 'Myers', 'Long', 'Ross', 'Foster', 'Jimenez'];
 
-const ability_scores = [
+const ability_scores = [{
+    'skill': 1,
+    'toughness': 2,
+    'charm': 3
+  },
   {
     'skill': 1,
     'toughness': 3,
     'charm': 2
+  },
+  {
+    'skill': 2,
+    'toughness': 1,
+    'charm': 3
+  },
+  {
+    'skill': 2,
+    'toughness': 2,
+    'charm': 2
+  },
+  {
+    'skill': 2,
+    'toughness': 3,
+    'charm': 1
+  },
+  {
+    'skill': 3,
+    'toughness': 1,
+    'charm': 2
+  },
+  {
+    'skill': 3,
+    'toughness': 2,
+    'charm': 1
   }
 ];
 
-const archetypes = [
+const archetypes = [{
+    'name': 'Budding Blossom',
+    'modifiers': [{
+        'skill': 1,
+        'toughness': 1
+      },
+      {
+        'skill': 1,
+        'charm': 1
+      },
+      {
+        'toughness': 1,
+        'charm': 1
+      }
+    ],
+     'feature':'None'
+  },
   {
     'name': 'Leader',
     'modifiers': [{
       'toughness': 1
+    }, {
+      'charm': 1
     }],
     'feature': 'You have a number of leadership dice equal to your Charm score. Whenever a fellow Blossom makes a test, you can give them one of your leadership dice to add to their dice pool for that test. Once you use a die this way, it is expended. You regain all expended leadersip dice after you complete a rest.'
+  },
+  {
+    'name': 'Scout',
+    'modifiers': [{
+      'toughness': 1
+    }, {
+      'skill': 1
+    }],
+    'feature': "After you roll dice to make a test related to outdoor survival and exploration, you may reroll the dice. You must accept the new result, even if it's worse. Once you use this benefit, you can't use it again until you complete a rest."
+  },
+  {
+    'name': 'Entrepreneur',
+    'modifiers': [{
+      'charm': 1
+    }, {
+      'skill': 1
+    }],
+    'feature': 'You double the result of all your daily Cookie Sales checks.'
+  },
+  {
+    'name': 'Athlete',
+    'modifiers': [{
+      'toughness': 1
+    }, {
+      'skill': 1
+    }],
+    'feature': "After you roll dice to make a test related to performing a physical activity such as climbing, swimming, or fighting, you may reroll the dice. You must accept the new result, even if it's worse. Once you use this benefit, you can't use it again until you complete a rest."
+  },
+  {
+    'name': 'Detective',
+    'modifiers': [{
+      'charm': 1
+    }, {
+      'skill': 1
+    }],
+    'feature': "After you roll dice to make a test related to making observations or solving puzzles, you may reroll the dice. You must accept the new result, even if it's worse. Once you use this benefit, you can't use it again until you complete a rest."
+  },
+  {
+    'name': 'Enforcer',
+    'modifiers': [{
+      'toughness': 1
+    }, {
+      'charm': 1
+    }],
+    'feature': "During a Scrap, enemies test for morale the first round, so long as they can see you and you aren't exhausted."
   }
 ];
 
@@ -84,16 +176,38 @@ const badges = [{
   },
 ];
 
-const special_items = [
+const special_items = [{
+    'name': 'Field Guide',
+    'description': '+1 die to Skill tests made to perform survival and exploration.',
+    'modifiers': ['skill']
+  },
+  {
+    'name': 'Slingshot',
+    'description': 'Mid-range. Requires ammunition. 1 damage.'
+  },
+  {
+    'name': 'Swiss Army Knife',
+    'description': '+1 die to Skill tests made to make repairs, build things, etc. Close-range. 1 damage.',
+    'modifiers': ['skill']
+  },
+  {
+    'name': 'Lucky Charm',
+    'description': 'Once per day, add +1 die to a test of your choice.',
+    'modifiers': ['skill', 'toughness', 'charm']
+  },
   {
     'name': 'Wagon',
     'description': 'Can carry 10 additional normal-sized items.',
     'capacity': 10
-  }
+  },
+  {
+    'name': 'First Aid Kit',
+    'description': 'The kit has 6 uses. You can expend a use to heal yourself or fellow Blossoms. To do so, you must succeed on a TN 5 Skill test.'
+  },
 ];
 
 const story = {
-  'personality': ['Curious', 'Empathetic', 'Optimistic', 'Perfectionist', 'Rebellious', 'Shy'],
+  'personality': ['Curious', 'Empathetic', 'Optimistic', 'Perectionist', 'Rebellious', 'Shy'],
   'upbringing': ['Challenging', 'Enigmatic', 'Multicultural', 'Privileged', 'Sheltered', 'Unconventional'],
   'flaw': ['Arrogant', 'Bully', 'Dishonest', 'Impatient', 'Insecure', 'Stubborn']
 };
@@ -187,7 +301,7 @@ function printStory() {
 function printBadges(badges) {
   const badgeContainer = document.getElementById('badges');
   const badgeText = badges.map(badge => {
-    return `<li><span class="label">${badge.name}:</span> ${badge.description}</li>`;
+    return `<li><b>${badge.name}:</b> ${badge.description}</li>`;
   }).join('');
   badgeContainer.innerHTML = badgeText;
 }
@@ -229,20 +343,20 @@ function calculateCapacity(toughness, specialItem) {
 function generateItemString(capacityInfo,specialItem) {
   const { capacity, maxCapacity } = capacityInfo;
   console.log(specialItem);
-  let itemString = `<li class=""><span class="label">${specialItem.name}</span> (${specialItem.description})<br>&nbsp;</li>`;
+  let itemString = `<div class="bottom"><li><b>${specialItem.name}</b> (${specialItem.description})</li></div>`;
 
   for (let i of range(2, maxCapacity)) {
-    let c = '';
+    let c = 'bottom';
 
     if (i > capacity) {
       c += ' red';
     }
-    itemString += `<li class="${c}">____________________<br>&nbsp;</li>`;
+    itemString += `<div class="${c}"><li>&#xfeff;<br>&#xfeff;</li></div>`;
   }
 
-  let capacityString = `* All test TNs increase by 1 for every item exceeding ${capacity}. It is impossible to carry more than ${maxCapacity} items.`;
+  itemString += `<div class="red">* All test TNs increase by 1 for every item exceeding ${capacity}. It is impossible to carry more than ${maxCapacity} items.</div>`;
 
-  return [itemString,capacityString];
+  return itemString;
 }
 
 function generateChar() {
@@ -252,7 +366,7 @@ function generateChar() {
   const selectedBadges = getRandomItemsWithoutDuplicates(badges, 2);
   const specialItem = randomItem(special_items);
   const capacityInfo = calculateCapacity(abilities.toughness, specialItem);
-  const [itemString,encumberance] = generateItemString(capacityInfo,specialItem);
+  const itemString = generateItemString(capacityInfo,specialItem);
 
   document.getElementById('girl_name').innerHTML = girlName;
   document.getElementById('girl_age').innerHTML = getRandomNumber(5, 18);
@@ -266,5 +380,4 @@ function generateChar() {
   printBadges(selectedBadges);
   document.getElementById('capacity').innerHTML = capacityInfo.text;
   document.getElementById('item_list').innerHTML = itemString;
-  document.getElementById('encumberance').innerHTML = encumberance;
 }
